@@ -1,0 +1,12 @@
+{
+    "displayName" : "Browserextensions",
+    "author" : ["Gilles DUBOIS"],
+    "contributor" : ["Ryan MILLER"],
+    "supportedAgent" : ["Windows"],
+    "version" : "1.0",
+    "licence" : "GPLv2",
+    "description" : {
+      "fr" : "Remonte les extensions d'un navigateur installées par utilisateur",
+      "en" : "Retrieve installed browser extensions for each users"
+    }
+  }

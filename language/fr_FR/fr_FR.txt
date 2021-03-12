@@ -1,0 +1,5 @@
+137000 Extensions navigateur
+137001 Nom de l'extension
+137002 Version de l'extension
+137003 UID de l'extension
+137004 Nom du navigateur
