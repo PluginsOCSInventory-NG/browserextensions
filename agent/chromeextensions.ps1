@@ -95,6 +95,6 @@ ForEach ($user in $userdir)
           }
 
         }
-
+        [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
         [Console]::WriteLine($xml)
     }
