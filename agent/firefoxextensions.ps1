@@ -1,5 +1,6 @@
 $xml=$null
-if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-path 'C:\Program Files\Mozilla Firefox\firefox.exe')){ 
+if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-path 'C:\Program Files\Mozilla Firefox\firefox.exe'))
+{ 
     $parentdir = "C:\Users\"
     $users = Get-ChildItem $parentdir
     $ObjCollection = @()
@@ -7,7 +8,7 @@ if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-p
     Foreach($user in $users){
         $targetdir = ""
         $ffdir = $parentdir + $user.ToString() + "\AppData\Roaming\Mozilla\Firefox\Profiles" 
-        $ejsons = if (test-path $ffdir) {Get-ChildItem -path $ffdir -File  -Filter "extensions.json" -Recurse}
+        $ejsons = if (test-path "$ffdir") {Get-ChildItem -path $ffdir -File  -Filter "extensions.json" -Recurse}
         foreach ($ejson in $ejsons) {
             
             $targetdir = $ejson.directoryname
@@ -21,7 +22,8 @@ if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-p
                 }
             }
 
-            if (test-path "$targetdir\extensions.json") {
+            if (test-path "$targetdir\extensions.json") 
+            {
                 $prefs = Get-Content "$targetdir\extensions.json"  | ConvertFrom-Json  # Read Prefernces JSON file
                 $prefs =  $prefs.addons
             
@@ -84,10 +86,14 @@ if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-p
                 } 
                       
             } 
+            else 
+  {
+    $xml += "<BROWSEREXTENSIONS />"
+  }
         } 
     } 
-} else {
-	$xml += "<BROWSEREXTENSIONS />"
+ 
+  
 }
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8 
+#[Console]::OutputEncoding = [System.Text.Encoding]::UTF8 
 [Console]::WriteLine($xml)
