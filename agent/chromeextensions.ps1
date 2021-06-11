@@ -151,6 +151,6 @@ if ((test-path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') -o
 
   }
 
-#[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 [Console]::WriteLine($xml)
         
