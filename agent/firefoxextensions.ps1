@@ -86,14 +86,10 @@ if ((test-path 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe') -or (test-p
                 } 
                       
             } 
-            else 
-  {
-    $xml += "<BROWSEREXTENSIONS />"
-  }
         } 
     } 
- 
-  
+} else {
+	$xml += "<BROWSEREXTENSIONS />"
 }
 #[Console]::OutputEncoding = [System.Text.Encoding]::UTF8 
 [Console]::WriteLine($xml)
