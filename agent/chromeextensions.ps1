@@ -129,13 +129,13 @@ if ((test-path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') -o
                         }
 
                         $browser_name = "Chrome"
-                        $xml += "<BROWSEREXTENSIONS>"
-                        $xml += "<USERNAME>$user_name</USERNAME>"
-                        $xml += "<BROWSERNAME>$browser_name</BROWSERNAME>"
-                        $xml += "<EXTENSIONNAME>$name</EXTENSIONNAME>"
-                        $xml += "<EXTENSIONVERSION>$version_folder</EXTENSIONVERSION>"
-                        $xml += "<EXTENSIONID>$appid</EXTENSIONID>"
-                        $xml += "</BROWSEREXTENSIONS>"
+                        $xml += "<BROWSEREXTENSIONS>`n"
+                        $xml += "<USERNAME>$user_name</USERNAME>`n"
+                        $xml += "<BROWSERNAME>$browser_name</BROWSERNAME>`n"
+                        $xml += "<EXTENSIONNAME>$name</EXTENSIONNAME>`n"
+                        $xml += "<EXTENSIONVERSION>$version_folder</EXTENSIONVERSION>`n"
+                        $xml += "<EXTENSIONID>$appid</EXTENSIONID>`n"
+                        $xml += "</BROWSEREXTENSIONS>`n`n"
 
                       }
 
