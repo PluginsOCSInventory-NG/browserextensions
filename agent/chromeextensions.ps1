@@ -18,6 +18,8 @@ if ((test-path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') -o
                    #Determine if Extensions have been added to avoid an error
                   if(Test-Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$ProfileFolder\Extensions")
                   {
+                    if(Test-Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$profileFolder\Local Extension Settings")
+                    {
 
                     $extension_folders = Get-ChildItem -Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$profileFolder\Local Extension Settings"
 
@@ -27,7 +29,7 @@ if ((test-path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') -o
                     foreach ($extension_folder in $extension_folders ) {
                       $appid = $extension_folder.BaseName
 
-                      if(Test-Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$profileFolder\Extensions"){
+                      if(Test-Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$profileFolder\Extensions\$appid"){
                         $version_folders = Get-ChildItem -Path "C:\Users\$user_name\AppData\Local\Google\Chrome\User Data\$profileFolder\Extensions\$appid"
 
                         foreach ($version_folder in $version_folders) {
@@ -138,7 +140,7 @@ if ((test-path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') -o
                       }
 
                     }   
-
+                  }
                   }
 
                 }
